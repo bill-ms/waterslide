@@ -21,7 +21,7 @@ Key Features:
 * dynamic by-label sub-selection of data
 * data garbage collection/reuse
 
-#BUILDING AND INSTALLING WaterSlide
+# BUILDING AND INSTALLING WaterSlide
 ## BASIC WaterSlide BUILD
 
 1) Set up the build environment
@@ -51,7 +51,6 @@ environment:
   * flex
 
 2) Build the package
-====================
 $ cd waterslide
 $ make -j
 
@@ -67,13 +66,12 @@ linked during compilation.
 
 When compilation is complete, the following executables will be placed in the
 waterslide/bin directory, with symbolic links in the waterslide directory:
-     * waterslide
-     * waterslide-parallel
-     * wsman
-     * wsalias
+* waterslide
+* waterslide-parallel
+* wsman
+* wsalias
 
 3) Add waterslide to the path
-==========================
 
 The WaterSlide tools can be directly invoked within the waterslide directory. For
 more flexibility, add the waterslide/bin directory to the execution $PATH shell
@@ -81,10 +79,7 @@ variable.
 
 $ source wssetup.sh
 
-
-===============================================================================
-2.2 INSTALLATION
-===============================================================================
+### INSTALLATION
 
 Once the WaterSlide tools have been built, they can be installed into a central
 location for general use:
@@ -109,10 +104,7 @@ WS_INSTALL=<destination_path> before invoking make install. Each user would
 need to add <destination_path>/bin to their executable $PATH in order to easily
 invoke the tools.
 
-
-===============================================================================
-2.3 BEHIND THE SCENES
-===============================================================================
+### BEHIND THE SCENES
 
 The build process for the WaterSlide code base consists of a series of Makefiles
 in various subdirectories to create the WaterSlide components. To provide a
@@ -133,11 +125,10 @@ View src/procs/Makefile or the output of the make process for details of the
 various build options.
 
 The directory structure for the installed WaterSlide environment is:
-     * waterslide/bin: compiled executables (e.g., waterslide, waterslide-parallel,
-       wsman)
-     * waterslide/lib: compiled libraries and special datatypes
-     * waterslide/procs: compiled kids
-     * waterslide/config: processing graphs
+* waterslide/bin: compiled executables (e.g., waterslide, waterslide-parallel, wsman)
+* waterslide/lib: compiled libraries and special datatypes
+* waterslide/procs: compiled kids
+* waterslide/config: processing graphs
 
 This formulaic structure allows the executables to find the support files by
 searching relative to the executable's location at runtime. If some components
@@ -145,10 +136,7 @@ are stored in a non-standard location, that can be specified by setting
 environment variables including WATERSLIDE_PROC_PATH, WATERSLIDE_ALIAS_PATH, and/or
 WATERSLIDE_CONFIG_PATH.
 
-
-===============================================================================
-2.4 CLEANING OR UNINSTALLING WaterSlide
-===============================================================================
+### CLEANING OR UNINSTALLING WaterSlide
 
 If changes are made to the core WaterSlide source code, you may need to "clean"
 your waterslide build before recompiling the code base:
@@ -173,25 +161,20 @@ Note: Uninstalling waterslide does not delete the waterslide binaries or librari
 that were built in the $(HOME)/local/waterslide directory. Use "make clean" or
 "make scour" as described above.
 
-
-#############################################################################
-3.0 DOCUMENTATION
-#############################################################################
+## DOCUMENTATION
 
 WaterSlide documentation can be found in the following locations:
-
 * Build/installation process: this document (waterslide/README)
-
 * Guide for WaterSlide users: waterslide/doc/users_guide/
-
 * Guide for WaterSlide kid developers: waterslide/doc/developer/
 
 Additionally, each kid has command-line help that you can access with the wsman
 tool:
-
+`
 $ wsman -h       # documentation for wsman
 $ wsman          # list of all kids
 $ wsman print    # documentation for print kid
 $ wsman -v print # verbose documentation
 $ wsman -t input # input kids
 $ wsman -s count  # string search
+`
