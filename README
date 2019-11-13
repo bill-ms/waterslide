@@ -1,76 +1,48 @@
 #WaterSlide
 ##A Lightweight Streaming Metadata Processor
 
-WaterSlide is an event-at-a-time architecture for processing metadata. It is
-designed to take in a set of streaming events from multiple sources,
-process them through a set of modules ("kids"), and return meaningful outputs.
-The user specifies a directed processing graph ("pipeline") of kids used to
-process data, both raw content (e.g., files, binary structures) and metadata
-about content. Kids can be filters, aggregators, annotators, decoders,
-translators, and collectors. Code is only executed when data is made available
-to a processing operation.
+WaterSlide is an event-at-a-time architecture for processing metadata. It is designed to take in a set of streaming events from multiple sources, process them through a set of modules ("kids"), and return meaningful outputs.  The user specifies a directed processing graph ("pipeline") of kids used to process data, both raw content (e.g., files, binary structures) and metadata about content. Kids can be filters, aggregators, annotators, decoders, translators, and collectors. Code is only executed when data is made available to a processing operation.
 
-WaterSlide can be used as a streaming MapReduce framework for complex event
-processing. It is designed to efficiently process data by minimizing copies,
-grouping data, and reusing memory. It contains specially designed data
-structures intended to explore event correlation on a massive scale with data
-that is fragmented across process and systems. As with most stream processing
-frameworks, many WaterSlide processing functions favor efficient approximate
-computation over less-efficient exact computations.
+WaterSlide can be used as a streaming MapReduce framework for complex event processing. It is designed to efficiently process data by minimizing copies, grouping data, and reusing memory. It contains specially designed data structures intended to explore event correlation on a massive scale with data that is fragmented across process and systems. As with most stream processing frameworks, many WaterSlide processing functions favor efficient approximate computation over less-efficient exact computations.
 
-WaterSlide can be used for a variety of purposes. It is used to generate
-interesting metadata from live data streams.
+WaterSlide can be used for a variety of purposes. It is used to generate interesting metadata from live data streams.
 
 Key Features:
-     * processing graph built at execution via command line or config file
-     * processing graph can have feedback loops
-     * zero-copy data processing, multiple "in flight" references to data
-     * generic processing functions that can work on any datatype
-     * anything that can be hashed can be used as a key for tracking state
-     * simple plug-in style development model
-     * built to handle text and binary metadata types
-     * expiring data structures for state tracking
-     * capable of reading from multiple sources
-     * Graphviz visualization of processing graph
-     * dynamic by-label sub-selection of data
-     * data garbage collection/reuse
+* processing graph built at execution via command line or config file
+* processing graph can have feedback loops
+* zero-copy data processing, multiple "in flight" references to data
+* generic processing functions that can work on any datatype
+* anything that can be hashed can be used as a key for tracking state
+* simple plug-in style development model
+* built to handle text and binary metadata types
+* expiring data structures for state tracking
+* capable of reading from multiple sources
+* Graphviz visualization of processing graph
+* dynamic by-label sub-selection of data
+* data garbage collection/reuse
 
-###############################################################################
-1.0 WaterSlide SIGNIFICANT CHANGE LOG
-###############################################################################
-
-===============================================================================
-1.1 VERSION 1.0
-===============================================================================
-1.1.1 version 1.0.0 (Release date: 18 July 2016)
-===============================================================================
-
-###############################################################################
-2.0 BUILDING AND INSTALLING WaterSlide
-###############################################################################
-
-===============================================================================
-2.1 BASIC WaterSlide BUILD
-===============================================================================
+#BUILDING AND INSTALLING WaterSlide
+## BASIC WaterSlide BUILD
 
 1) Set up the build environment
-===============================
 The WaterSlide package is distributed as either a compressed tarball (typically
 named waterslide<datetag>.tar.bzip2) or via a git repository. Set up your build
 environment based on your distribution environment.
 
 If using Debian or Ubuntu you will need the following packages:
-----------------------------------------------------
+`
 build-essential flex bison zlib1g-dev
+`
 
 Extract the tarball:
---------------------
+`
 $ tar xvfj waterslide<datetag>.tar.bzip2
+`
 
 Or, clone the git repository:
--------------------------
+`
 $ git clone ssh://<server>/<path-to-repository>
-
+`
 A directory named "waterslide" will be created in the current directory.
 
 waterslide relies on the following libraries that must be installed in the build
