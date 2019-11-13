@@ -1,5 +1,5 @@
-#WaterSlide
-##A Lightweight Streaming Metadata Processor
+# WaterSlide
+## A Lightweight Streaming Metadata Processor
 
 WaterSlide is an event-at-a-time architecture for processing metadata. It is designed to take in a set of streaming events from multiple sources, process them through a set of modules ("kids"), and return meaningful outputs.  The user specifies a directed processing graph ("pipeline") of kids used to process data, both raw content (e.g., files, binary structures) and metadata about content. Kids can be filters, aggregators, annotators, decoders, translators, and collectors. Code is only executed when data is made available to a processing operation.
 
