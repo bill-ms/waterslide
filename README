@@ -1,13 +1,12 @@
-*******************************************************************************
-WaterSlide -- a lightweight streaming metadata processor
-*******************************************************************************
+# WaterSlide
+## A Lightweight Streaming Metadata Processor
 Updated July 2016
 
 WaterSlide is an event-at-a-time architecture for processing metadata. It is
 designed to take in a set of streaming events from multiple sources,
 process them through a set of modules ("kids"), and return meaningful outputs.
 The user specifies a directed processing graph ("pipeline") of kids used to
-process data, both raw content (e.g., files, binary structures) and metadata 
+process data, both raw content (e.g., files, binary structures) and metadata
 about content. Kids can be filters, aggregators, annotators, decoders,
 translators, and collectors. Code is only executed when data is made available
 to a processing operation.
@@ -75,7 +74,7 @@ $ git clone ssh://<server>/<path-to-repository>
 
 A directory named "waterslide" will be created in the current directory.
 
-waterslide relies on the following libraries that must be installed in the build 
+waterslide relies on the following libraries that must be installed in the build
 environment:
   * bison
   * flex
@@ -86,13 +85,13 @@ $ cd waterslide
 $ make -j
 
 Note: In most situations, the -j option should be used to take advantage of
-multi-threaded compilation in order to complete the building process more 
-efficiently.  If there are resource limitations, the number of threads can 
+multi-threaded compilation in order to complete the building process more
+efficiently.  If there are resource limitations, the number of threads can
 be limited via a parameter (e.g., -j 8).
 
-Note: In cases where your build environment already has protobuf libraries, you 
-will need to add the waterslide/bin directory to the $PATH before compiling (see 
-Step 3). This will ensure that the waterslide protobuf libraries are properly 
+Note: In cases where your build environment already has protobuf libraries, you
+will need to add the waterslide/bin directory to the $PATH before compiling (see
+Step 3). This will ensure that the waterslide protobuf libraries are properly
 linked during compilation.
 
 When compilation is complete, the following executables will be placed in the
@@ -159,7 +158,7 @@ $ export WS_VERBOSEBUILD=1
 
 A number of kids that depend on non-standard components are only built by
 setting specific environment variables (e.g., HASPLPLOT=1) during compilation.
-View src/procs/Makefile or the output of the make process for details of the 
+View src/procs/Makefile or the output of the make process for details of the
 various build options.
 
 The directory structure for the installed WaterSlide environment is:
@@ -180,13 +179,13 @@ WATERSLIDE_CONFIG_PATH.
 2.4 CLEANING OR UNINSTALLING WaterSlide
 ===============================================================================
 
-If changes are made to the core WaterSlide source code, you may need to "clean" 
+If changes are made to the core WaterSlide source code, you may need to "clean"
 your waterslide build before recompiling the code base:
 
 $ make clean
 
-The compiled WaterSlide libraries (not including the waterslide/protobuflib/lib libraries) 
-and binaries will be deleted. In some extreme cases, you may also need to rebuild 
+The compiled WaterSlide libraries (not including the waterslide/protobuflib/lib libraries)
+and binaries will be deleted. In some extreme cases, you may also need to rebuild
 the waterslide protobuf libraries:
 
 $ make scour
@@ -195,12 +194,12 @@ Finally, the WaterSlide tools can also be uninstalled (see Section 2.2):
 
 $ sudo make uninstall
 
-In this case, the waterslide files and libraries will be deleted from the central 
-location /usr/local/waterslide (or $(HOME)/local/waterslide, if run by an 
+In this case, the waterslide files and libraries will be deleted from the central
+location /usr/local/waterslide (or $(HOME)/local/waterslide, if run by an
 unprivileged user).
 
-Note: Uninstalling waterslide does not delete the waterslide binaries or libraries 
-that were built in the $(HOME)/local/waterslide directory. Use "make clean" or 
+Note: Uninstalling waterslide does not delete the waterslide binaries or libraries
+that were built in the $(HOME)/local/waterslide directory. Use "make clean" or
 "make scour" as described above.
 
 
@@ -225,4 +224,3 @@ $ wsman print    # documentation for print kid
 $ wsman -v print # verbose documentation
 $ wsman -t input # input kids
 $ wsman -s count  # string search
-
